@@ -67,6 +67,29 @@ body {
   line-height: 1.5;
 }
 
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 75vh;
+  background-image: linear-gradient(to bottom, transparent 20%, var(--bg-primary) 95%), url('interior-peaky.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -3;
+  opacity: 0.28;
+  filter: blur(5px) brightness(0.75) contrast(1.1);
+  transition: opacity 0.4s ease, filter 0.4s ease;
+  pointer-events: none;
+}
+
+[data-theme="light"] body::before {
+  opacity: 0.14;
+  filter: blur(6px) brightness(1.02) contrast(0.95);
+}
+
 /* Background blob decorations for Glassmorphic glow */
 .bg-blobs {
   position: fixed;
@@ -174,7 +197,10 @@ body {
 .loader-logo {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 87, 34, 0.6);
+  box-shadow: 0 0 20px rgba(255, 87, 34, 0.45);
   animation: pulseLogo 2s infinite ease-in-out;
 }
 
@@ -267,7 +293,17 @@ header {
 .brand-logo {
   width: 44px;
   height: 44px;
-  object-fit: contain;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 87, 34, 0.5);
+  box-shadow: 0 0 10px rgba(255, 87, 34, 0.3);
+  transition: all 0.3s ease;
+}
+
+.brand-logo:hover {
+  transform: scale(1.08) rotate(5deg);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 15px var(--accent-glow);
 }
 
 .brand-name {
@@ -633,7 +669,17 @@ footer {
 .hero-logo-box img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 87, 34, 0.5);
+  box-shadow: 0 0 15px rgba(255, 87, 34, 0.3);
+  transition: all 0.5s ease;
+}
+
+.hero-logo-box:hover img {
+  transform: scale(1.05) rotate(3deg);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 25px var(--accent-glow);
 }
 
 .hero h1 {
@@ -2127,20 +2173,546 @@ footer {
 }
 
 /* ==========================================
-   FEATURED ITEMS
+   SIGNATURE SPECIALS SHOWCASE
    ========================================== */
-.featured-section {
-  padding: 64px 24px 32px 24px;
+.signature-specials-section {
+  padding: 64px 24px;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.specials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+  margin-top: 32px;
+}
+
+.special-item-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 24px;
+  height: 100%;
+}
+
+.special-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: var(--accent-gradient);
+  color: #fff;
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 6px 12px;
+  border-radius: 30px;
+  z-index: 10;
+  box-shadow: 0 4px 10px var(--accent-glow);
+}
+
+.special-img-wrapper {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.special-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.special-item-card:hover .special-img-wrapper img {
+  transform: scale(1.1);
+}
+
+.special-info {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.special-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.special-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--text-primary);
+}
+
+.special-price {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--accent-color);
+}
+
+.special-desc {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.special-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+/* ==========================================
+   OUR STORY SECTION
+   ========================================== */
+.our-story-section {
+  padding: 64px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.story-container {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 48px;
+  padding: 48px;
+  align-items: center;
+}
+
+.story-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.story-tag {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.story-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+.story-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.story-stats {
+  display: flex;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.stat-card {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-card);
+  padding: 16px;
+  border-radius: 16px;
   text-align: center;
 }
 
-.featured-grid {
+.stat-card h3 {
+  font-family: var(--font-title);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--accent-color);
+  margin-bottom: 4px;
+}
+
+.stat-card p {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.story-media {
+  border-radius: 24px;
+  overflow: hidden;
+  height: 380px;
+  box-shadow: var(--glass-shadow);
+  border: 1px solid var(--border-card);
+}
+
+.story-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.story-container:hover .story-img {
+  transform: scale(1.03);
+}
+
+/* Responsive adjust */
+@media (max-width: 991px) {
+  .story-container {
+    grid-template-columns: 1fr;
+    padding: 32px;
+    gap: 32px;
+  }
+  .story-media {
+    height: 300px;
+    order: -1;
+  }
+}
+
+@media (max-width: 575px) {
+  .story-stats {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+/* ==========================================
+   CHEF PAGE STYLES
+   ========================================== */
+.chef-section {
+  padding: 64px 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-bottom: 120px; /* spacing for mobile nav */
+}
+
+.chef-card {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 32px;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 48px;
+  padding: 48px;
+  align-items: center;
+}
+
+.chef-media {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  height: 440px;
+  box-shadow: var(--glass-shadow);
+  border: 1px solid var(--border-card);
+}
+
+.chef-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.chef-card:hover .chef-media img {
+  transform: scale(1.03);
+}
+
+.chef-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 24px;
+  background: linear-gradient(to top, rgba(10, 9, 8, 0.9), transparent);
+  text-align: center;
+}
+
+.chef-overlay h3 {
+  color: #ffffff;
+  font-size: 1.3rem;
+  margin-bottom: 2px;
+}
+
+.chef-overlay p {
+  color: var(--accent-color);
+  font-size: 0.85rem;
+  font-family: var(--font-title);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.chef-tag {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+  display: inline-block;
+}
+
+.chef-details h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 24px;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+.chef-quote {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+  font-style: italic;
+  border-left: 3px solid var(--accent-color);
+  padding-left: 16px;
+}
+
+.chef-bio-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+.chef-badges {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.chef-badge-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-card);
+  padding: 10px 20px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chef-badge-item i {
+  color: var(--accent-color);
+}
+
+.chef-badge-item span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Chef Mobile Adjustments */
+@media (max-width: 991px) {
+  .chef-card {
+    grid-template-columns: 1fr;
+    padding: 32px;
+    gap: 32px;
+  }
+  
+  .chef-media {
+    height: 380px;
+    max-width: 450px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+/* ==========================================
+   TABLE BOOKING SECTION
+   ========================================== */
+.booking-section {
+  padding: 64px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.booking-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 48px;
+  padding: 48px;
+  align-items: center;
+}
+
+.booking-info h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+.booking-info p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.booking-benefits {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.booking-benefits li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.booking-benefits i {
+  color: var(--accent-color);
+  font-size: 1.1rem;
+}
+
+/* Booking Form Elements */
+.booking-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.form-group-full {
+  grid-column: span 2;
+}
+
+.booking-form label {
+  display: block;
+  font-family: var(--font-title);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-card);
+  border-radius: 12px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.booking-form input:focus,
+.booking-form select:focus,
+.booking-form textarea:focus {
+  border-color: var(--accent-color);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.booking-form select option {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.booking-form textarea {
+  height: 80px;
+  resize: none;
+}
+
+/* FAQ Section Accordion styling */
+.faq-section {
+  padding: 64px 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.faq-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   margin-top: 32px;
+}
+
+.faq-item {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border-card);
+  background: var(--bg-card);
+  transition: all 0.3s ease;
+}
+
+.faq-item summary {
+  padding: 20px 24px;
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 1.05rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  color: var(--text-primary);
+  outline: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "\f0fe"; /* FontAwesome plus */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 0.9rem;
+  color: var(--accent-color);
+  transition: transform 0.3s ease;
+}
+
+.faq-item[open] summary::after {
+  content: "\f146"; /* FontAwesome minus */
+  transform: rotate(180deg);
+}
+
+.faq-content {
+  padding: 0 24px 20px 24px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* Responsive Booking Form */
+@media (max-width: 991px) {
+  .booking-wrapper {
+    grid-template-columns: 1fr;
+    padding: 32px;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 575px) {
+  .booking-form {
+    grid-template-columns: 1fr;
+  }
+  .form-group-full {
+    grid-column: span 1;
+  }
 }
 
 

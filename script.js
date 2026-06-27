@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (page === "index.html" || page === "") {
     initHomeReviews();
+    initTableBooking();
   } else if (page === "menu.html") {
     initMenuPage();
   } else if (page === "cart.html") {
@@ -132,6 +133,23 @@ function addToCart(item, quantity = 1, size = null) {
 
   saveCart(cart);
   showToast(`Added ${displayName} to cart!`);
+}
+
+function addToCartById(itemId) {
+  if (typeof menuData === 'undefined') {
+    showToast("Menu data not loaded yet!");
+    return;
+  }
+  let foundItem = null;
+  for (const cat of menuData) {
+    foundItem = cat.items.find(item => item.id === itemId);
+    if (foundItem) break;
+  }
+  if (foundItem) {
+    addToCart(foundItem);
+  } else {
+    showToast("Item not found!");
+  }
 }
 
 /* ==========================================
@@ -715,5 +733,53 @@ function initCookieBanner() {
     localStorage.setItem("cookieConsent", "accepted");
     cookieBanner.classList.remove("show");
     showToast("Cookie preferences updated!");
+  });
+}
+
+/* ==========================================
+   TABLE BOOKING
+   ========================================== */
+function initTableBooking() {
+  const bookingForm = document.getElementById("table-booking-form");
+  if (!bookingForm) return;
+
+  bookingForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById("booking-name").value.trim();
+    const phone = document.getElementById("booking-phone").value.trim();
+    const date = document.getElementById("booking-date").value;
+    const time = document.getElementById("booking-time").value;
+    const guests = document.getElementById("booking-guests").value;
+    const type = document.getElementById("booking-type").value;
+    const notes = document.getElementById("booking-notes").value.trim();
+
+    if (!name || !phone || !date || !time) {
+      showToast("Please fill in all required fields!");
+      return;
+    }
+
+    const waPhone = "9801351304";
+    let text = `*New Table Reservation - CHICK'N'BUN'S*\n`;
+    text += `------------------------------------\n`;
+    text += `*Name:* ${name}\n`;
+    text += `*Phone:* ${phone}\n`;
+    text += `*Date:* ${date}\n`;
+    text += `*Time:* ${time}\n`;
+    text += `*Guests:* ${guests} People\n`;
+    text += `*Reservation Type:* ${type}\n`;
+    if (notes) {
+      text += `*Notes/Requests:* ${notes}\n`;
+    }
+    text += `------------------------------------\n`;
+    text += `Please confirm my reservation request. Thank you!`;
+
+    const encodedText = encodeURIComponent(text);
+    const waUrl = `https://wa.me/91${waPhone}?text=${encodedText}`;
+    
+    showToast("Opening WhatsApp to send reservation request...");
+    setTimeout(() => {
+      window.open(waUrl, "_blank");
+    }, 1000);
   });
 }

@@ -50,6 +50,7 @@
       <ul class="nav-links">
         <li><a href="index.html" class="nav-link active">Home</a></li>
         <li><a href="menu.html" class="nav-link">Menu</a></li>
+        <li><a href="chef.html" class="nav-link">Chef</a></li>
         <li><a href="cart.html" class="nav-link">Cart</a></li>
         <li><a href="devs.html" class="nav-link">Devs</a></li>
       </ul>
@@ -76,6 +77,10 @@
       <a href="menu.html" class="mobile-nav-item">
         <i class="fa-solid fa-book-open"></i>
         <span>Menu</span>
+      </a>
+      <a href="chef.html" class="mobile-nav-item">
+        <i class="fa-solid fa-user-tie"></i>
+        <span>Chef</span>
       </a>
       <a href="cart.html" class="mobile-nav-item cart-mobile">
         <i class="fa-solid fa-cart-shopping"></i>
@@ -119,6 +124,106 @@
       <div class="highlight-icon"><i class="fa-solid fa-heart"></i></div>
       <h3>Friendly Staff</h3>
       <p>Humble owners and friendly service staff to make you feel right at home with every visit.</p>
+    </div>
+  </section>
+
+  <!-- Signature Specials Section -->
+  <section class="signature-specials-section">
+    <h2 class="section-title">Chef's Signatures</h2>
+    <p class="section-subtitle" style="text-align: center; color: var(--text-secondary); margin-bottom: 32px;">Must-try riverside culinary masterpieces prepared fresh on order</p>
+    
+    <div class="specials-grid">
+      <!-- Item 1: Chicken Burger -->
+      <div class="special-item-card glass-card">
+        <div class="special-badge">Best Seller</div>
+        <div class="special-img-wrapper">
+          <img src="chicken-burger.jpg" alt="Chicken Burger" loading="lazy">
+        </div>
+        <div class="special-info">
+          <div class="special-header">
+            <h3 class="special-name">Peaky Blinder's Chicken Burger</h3>
+            <span class="special-price">₹119</span>
+          </div>
+           <p class="special-desc">Crispy fried chicken breast, layered with fresh lettuce, thick premium mayonnaise, and melted cheddar cheese on a toasted artisan bun.</p>
+          <div class="special-actions">
+            <span class="dot-indicator nonveg"></span>
+            <button class="btn btn-primary" onclick="addToCartById('sp1')">
+              <i class="fa-solid fa-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 2: Veg Maggi -->
+      <div class="special-item-card glass-card">
+        <div class="special-badge">Riverside Favorite</div>
+        <div class="special-img-wrapper">
+          <img src="veg-maggi.png" alt="Veg Maggi" loading="lazy">
+        </div>
+        <div class="special-info">
+          <div class="special-header">
+            <h3 class="special-name">Street-Style Veg Maggi</h3>
+            <span class="special-price">₹50</span>
+          </div>
+          <p class="special-desc">Patna's local favorite! Perfectly spiced street-style Maggi noodles cooked with mixed fresh seasonal vegetables and a secret butter masala mix.</p>
+          <div class="special-actions">
+            <span class="dot-indicator veg"></span>
+            <button class="btn btn-primary" onclick="addToCartById('mg4')">
+              <i class="fa-solid fa-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 3: Oreo Shake -->
+      <div class="special-item-card glass-card">
+        <div class="special-badge">Premium Blend</div>
+        <div class="special-img-wrapper">
+          <img src="oreo-shake.png" alt="Oreo Shake" loading="lazy">
+        </div>
+        <div class="special-info">
+          <div class="special-header">
+            <h3 class="special-name">Riverside Oreo Shake</h3>
+            <span class="special-price">₹109</span>
+          </div>
+          <p class="special-desc">Thick, creamy vanilla and milk blend whipped with crunchy Oreo cookies, dark chocolate syrup, chocolate chips, and topped with premium whipped cream.</p>
+          <div class="special-actions">
+            <span class="dot-indicator veg"></span>
+            <button class="btn btn-primary" onclick="addToCartById('bv7')">
+              <i class="fa-solid fa-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Story Section -->
+  <section class="our-story-section">
+    <div class="story-container glass-card">
+      <div class="story-content">
+        <span class="story-tag">Our Story</span>
+        <h2 class="story-title">Crafting Premium Riverside Vibe Since Day One</h2>
+        <p class="story-text">Nestled along the serene banks of the Ganga River at Kangan Ghat, CHICK'N'BUN'S was born out of a simple passion: to serve premium, mouth-watering street food with an unmatchable atmosphere.</p>
+        <p class="story-text">From our thematic Peaky Blinders corner to our glowing neon signage, every square inch of our lounge is built to offer a cozy, aesthetic hangout spot for friends, families, and food lovers alike. We believe that great service, humble smiles, and fresh quality ingredients are what make an experience truly unforgettable.</p>
+        <div class="story-stats">
+          <div class="stat-card">
+            <h3>100%</h3>
+            <p>Fresh Ingredients</p>
+          </div>
+          <div class="stat-card">
+            <h3>5 ★</h3>
+            <p>Local Guides Rated</p>
+          </div>
+          <div class="stat-card">
+            <h3>4.9/5</h3>
+            <p>Riverside Vibe Score</p>
+          </div>
+        </div>
+      </div>
+      <div class="story-media">
+        <img src="interior-peaky.jpg" alt="Cozy Lounge Cafe Interior" class="story-img" loading="lazy">
+      </div>
     </div>
   </section>
 
@@ -215,6 +320,73 @@
     </div>
   </section>
 
+  <!-- Table Booking Section -->
+  <section class="booking-section">
+    <div class="booking-wrapper glass-card">
+      <div class="booking-info">
+        <h2>Reserve A Table</h2>
+        <p>Planning a hangout, cozy date, or a birthday party? Book your spot right next to the Ganga River. We will keep your table ready with our stunning river breezes.</p>
+        
+        <ul class="booking-benefits">
+          <li><i class="fa-solid fa-circle-check"></i> Gorgeous Riverside Ganga View</li>
+          <li><i class="fa-solid fa-circle-check"></i> Theme Peaky Blinders Cozy Seating</li>
+          <li><i class="fa-solid fa-circle-check"></i> Priority Service & Zero Wait Time</li>
+          <li><i class="fa-solid fa-circle-check"></i> Birthday & Event Decorations Available</li>
+        </ul>
+      </div>
+
+      <div class="booking-form-container">
+        <form id="table-booking-form" class="booking-form">
+          <div>
+            <label for="booking-name">Full Name *</label>
+            <input type="text" id="booking-name" placeholder="Enter your name" required>
+          </div>
+          <div>
+            <label for="booking-phone">Phone Number *</label>
+            <input type="tel" id="booking-phone" placeholder="Enter mobile number" required>
+          </div>
+          <div>
+            <label for="booking-date">Date *</label>
+            <input type="date" id="booking-date" required>
+          </div>
+          <div>
+            <label for="booking-time">Preferred Time *</label>
+            <input type="time" id="booking-time" required>
+          </div>
+          <div>
+            <label for="booking-guests">Number of Guests</label>
+            <select id="booking-guests">
+              <option value="1">1 Person</option>
+              <option value="2" selected>2 People</option>
+              <option value="4">4 People</option>
+              <option value="6">6 People</option>
+              <option value="8">8+ People (Group)</option>
+            </select>
+          </div>
+          <div>
+            <label for="booking-type">Reservation Type</label>
+            <select id="booking-type">
+              <option value="Dine-in Hangout">Dine-in Hangout</option>
+              <option value="Cozy Date">Cozy Date</option>
+              <option value="Birthday Party">Birthday Party</option>
+              <option value="Family Gathering">Family Gathering</option>
+              <option value="Riverside Reunion">Riverside Reunion</option>
+            </select>
+          </div>
+          <div class="form-group-full">
+            <label for="booking-notes">Special Requests/Notes (Optional)</label>
+            <textarea id="booking-notes" placeholder="e.g. Riverside window seat, birthday decorations request, etc."></textarea>
+          </div>
+          <div class="form-group-full">
+            <button type="submit" class="btn btn-primary" style="width: 100%; border-radius: 12px; padding: 14px;">
+              <i class="fa-brands fa-whatsapp"></i> Request Booking via WhatsApp
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
   <!-- Reviews Section -->
   <section class="reviews-section">
     <h2 class="section-title">What Customers Say</h2>
@@ -231,6 +403,42 @@
         <!-- Injected via script.js -->
         <div class="indicator-dot active"></div>
       </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <h2 class="section-title" style="text-align: center;">Frequently Asked Questions</h2>
+    <p class="section-subtitle" style="text-align: center; color: var(--text-secondary); margin-bottom: 24px;">Got questions? We've got answers.</p>
+    
+    <div class="faq-container">
+      <details class="faq-item">
+        <summary>Are Veg and Non-Veg items prepared separately?</summary>
+        <div class="faq-content">
+          Yes, absolutely. We maintain strict hygiene standards and cook all vegetarian items in separate utensils and cooking zones to respect our customers' dietary preferences.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do you host private events, birthdays or reunions?</summary>
+        <div class="faq-content">
+          Yes, we do! Our cafe interior features an aesthetic Peaky Blinders corner and neon signs, which is a perfect setting for birthday celebrations, cozy reunions, and gatherings. You can book a spot using the table reservation form above.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do you offer home delivery in Patna City?</summary>
+        <div class="faq-content">
+          We primarily offer self-pickup and takeaways. However, for delivery inside Patna City (near Kangan Ghat and Chowk area), please contact us directly at +91 9801351304 to confirm if delivery staff is currently available.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What are your cafe operating timings?</summary>
+        <div class="faq-content">
+          CHICK'N'BUN'S is open every day of the week from 11:00 AM to 10:00 PM. We look forward to serving you!
+        </div>
+      </details>
     </div>
   </section>
 
@@ -254,6 +462,7 @@
         <ul class="footer-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="menu.html">Our Menu</a></li>
+          <li><a href="chef.html">Meet Chef</a></li>
           <li><a href="cart.html">View Cart</a></li>
           <li><a href="devs.html">Developers</a></li>
           <li><a href="privacy.html">Privacy Policy</a></li>

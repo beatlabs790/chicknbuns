@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Privacy Policy - CHICK'N'BUN'S</title>
+  <title>Meet the Chef - CHICK'N'BUN'S</title>
+  <meta name="description" content="Meet Md. Aquib Kamal, the owner and head chef of CHICK'N'BUN'S café in Patna City. Discover their culinary passion and 6+ years of cafe experience.">
   
   <!-- Tab Favicon -->
   <link rel="icon" type="image/png" href="logo.png">
@@ -49,7 +50,7 @@
       <ul class="nav-links">
         <li><a href="index.html" class="nav-link">Home</a></li>
         <li><a href="menu.html" class="nav-link">Menu</a></li>
-        <li><a href="chef.html" class="nav-link">Chef</a></li>
+        <li><a href="chef.html" class="nav-link active">Chef</a></li>
         <li><a href="cart.html" class="nav-link">Cart</a></li>
         <li><a href="devs.html" class="nav-link">Devs</a></li>
       </ul>
@@ -77,7 +78,7 @@
         <i class="fa-solid fa-book-open"></i>
         <span>Menu</span>
       </a>
-      <a href="chef.html" class="mobile-nav-item">
+      <a href="chef.html" class="mobile-nav-item active">
         <i class="fa-solid fa-user-tie"></i>
         <span>Chef</span>
       </a>
@@ -93,37 +94,43 @@
     </div>
   </nav>
 
-  <!-- Document Section -->
-  <main class="doc-section">
-    <div class="doc-card glass-card">
-      <h1>Privacy Policy</h1>
-      <div class="doc-meta">
-        <span><i class="fa-solid fa-calendar-days"></i> Last Updated: June 26, 2026</span>
-        <span><i class="fa-solid fa-shield-halved"></i> Security Status: Verified</span>
+  <!-- Chef Bio Main Content -->
+  <main class="chef-section">
+    <div class="chef-card glass-card">
+      <div class="chef-media">
+        <img src="iquib.jpg" alt="Md. Aquib Kamal" onerror="this.src='logo.png'">
+        <div class="chef-overlay">
+          <h3>Md. Aquib Kamal</h3>
+          <p>Owner & Head Chef</p>
+        </div>
       </div>
       
-      <h2>1. Introduction</h2>
-      <p>Welcome to CHICK'N'BUN'S Privacy Policy page. We respect your privacy and are committed to protecting any details you share with us. This policy describes how we handle information when you browse our premium riverside website and use our cart services.</p>
-      
-      <h2>2. Information Collection</h2>
-      <p>Our website is designed as a lightweight, pre-rendered static experience that collects very minimal data to run correctly. We do not use third-party backend servers to track your browsing habits:</p>
-      <ul>
-        <li><strong>Order Details:</strong> Any name, item selection, or instruction you provide in the Cart page is compiled solely in your browser to prepare WhatsApp order text messages.</li>
-        <li><strong>Local Storage:</strong> We store your active shopping cart items and light/dark mode selection in your browser's local storage so that your configurations persist when you refresh or navigate pages.</li>
-      </ul>
-
-      <h2>3. Cookies and Consent</h2>
-      <p>We use essential cookies and local storage tokens to store system preferences (such as your theme style). We do not run advertisement tracking pixels. By selecting "Accept Cookies" on our banner, you consent to our use of these essential local storage elements to guarantee zero lag during navigation.</p>
-
-      <h2>4. Data Storage and Transfer</h2>
-      <p>All items placed in your cart remain stored entirely client-side. When you choose to place an order, the details are transferred directly into WhatsApp (managed by Meta Technologies) or transmitted verbally when you execute a direct call to our phone number (+91 9801351304).</p>
-
-      <h2>5. Updates to This Policy</h2>
-      <p>We may modify our site configurations from time to time. We encourage visitors to review this policy page occasionally to stay informed about how we maintain clean, secure user experiences.</p>
-
-      <div style="margin-top: 40px; display: flex; gap: 12px; flex-wrap: wrap;">
-        <a href="index.html" class="btn btn-primary"><i class="fa-solid fa-house"></i> Return Home</a>
-        <a href="terms.html" class="btn btn-secondary">Terms & Conditions</a>
+      <div class="chef-details">
+        <span class="chef-tag">Culinary Mastermind</span>
+        <h1>Meet Our Chef</h1>
+        
+        <p class="chef-quote">
+          "Every dish is a canvas, and fresh, comforting flavors are the paint. We welcome you to experience the passion in every single bite."
+        </p>
+        
+        <p class="chef-bio-text">
+          Passionate about creating memorable, comforting dishes, Md. Aquib Kamal has over 6 years of experience in the culinary world, specializing in cafe-style cuisine. Known for crafting flavorful, innovative recipes, Aquib combines fresh ingredients with global inspirations to elevate classic cafe fare.
+        </p>
+        
+        <p class="chef-bio-text">
+          With a dedication to seasonal, locally-sourced ingredients, they bring a farm-to-table approach to every meal, ensuring each dish is as wholesome as it is delicious.
+        </p>
+        
+        <div class="chef-badges">
+          <div class="chef-badge-item">
+            <i class="fa-solid fa-award"></i>
+            <span>6+ Years Exp</span>
+          </div>
+          <div class="chef-badge-item">
+            <i class="fa-solid fa-plate-wheat"></i>
+            <span>Farm-to-Table</span>
+          </div>
+        </div>
       </div>
     </div>
   </main>
@@ -170,6 +177,18 @@
       &copy; 2026 CHICK'N'BUN'S Cafe. All Rights Reserved. Designed by <a href="devs.html" style="color: var(--text-primary); text-decoration: underline;">ZephyrDevs</a>.
     </div>
   </footer>
+
+  <!-- Cookie Consent Banner -->
+  <div id="cookie-banner" class="cookie-banner glass-card">
+    <div class="cookie-banner-text">
+      <i class="fa-solid fa-cookie-bite" style="color: var(--accent-color); margin-right: 8px;"></i>
+      We use essential cookies and browser local storage to save your cart items and dark/light theme preferences. This ensures a fast, lag-free navigation experience.
+    </div>
+    <div class="cookie-banner-actions">
+      <a href="privacy.html" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.8rem;">Learn More</a>
+      <button id="accept-cookies" class="btn btn-primary" style="padding: 8px 16px; font-size: 0.8rem;">Accept Cookies</button>
+    </div>
+  </div>
 
   <!-- Script Files -->
   <script src="menu-data.js"></script>
